@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
     }
     var soma = numero1 + numero2;
     var retorno = `${numero1} + ${numero2} = ${soma}`
-    console.log(req.body)
+    
     return res.status(200).send({ retorno })
 })
 module.exports = router;

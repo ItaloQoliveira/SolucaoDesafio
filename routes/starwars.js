@@ -10,7 +10,7 @@ router.get('/films', (req, res) => {
         resposta.on('data', chunk => {
             data.push(chunk);
         });
-
+        
         resposta.on('end', () => {
             const filmes = JSON.parse(Buffer.concat(data).toString());
             
