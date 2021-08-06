@@ -1,10 +1,15 @@
 const express = require('express')
 const router = express.Router();
 
-router.post('/',(req, res)=>{
-    var soma = req.body[0] + req.body[1] //req body possui array de numeros
-    var retorno = `${req.body[0]} + ${req.body[1]} = ${soma}`
+router.post('/', (req, res) => {
+    
+    const { numero1, numero2 } = req.body; //json deve enviar numero1 e numero2
+    if (!(numero1) || !(numero2)) {
+        return res.status(400).send("Ambos ou um valor vazio, favor enviar numeros")
+    }
+    var soma = numero1 + numero2;
+    var retorno = `${numero1} + ${numero2} = ${soma}`
     console.log(req.body)
-    return res.status(200).send({retorno})
+    return res.status(200).send({ retorno })
 })
 module.exports = router;
